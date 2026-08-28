@@ -7,7 +7,7 @@ ACCENT = "#a20202"
 audience = [
     {"k1": "Новая", "k2": "профессия", "text": "Если вы хотите освоить новую профессию — обучение проходит с нуля, без опыта в учёте."},
     {"k1": "Уже", "k2": "калькулятор", "text": "Если вы уже работаете калькулятором — систематизируете знания и повысите квалификацию."},
-    {"k1": "Работаете", "k2": "в ресторане", "text": "Если вы работаете в ресторане — разберётесь в себестоимости, производстве и складском учёте."},
+    {"k1": "Работаете", "k2": "в общепите", "text": "Если вы работаете в общепите — разберётесь в себестоимости, производстве и складском учёте."},
 ]
 
 skills = [
@@ -55,9 +55,9 @@ career_points = [
 ]
 
 reviews = [
-    {"role": "Кост-контроллер", "name": "Айгерим Сатпаева", "text": "Курс дал структуру: разложила по полочкам работу с калькуляционными картами и себестоимостью. Теперь веду учёт увереннее."},
-    {"role": "Владелец кафе", "name": "Нурлан Ахметов", "text": "Наконец разобрался, куда уходит прибыль. Настроили склад и увидели реальный фудкост — сразу нашли, где теряли деньги."},
-    {"role": "Управляющий рестораном", "name": "Динара Оспанова", "text": "Практика на реальной базе — то, чего не хватало на других курсах. Всё понятно объясняется, без лишней теории."},
+    {"tag": "Ученица курса «Кост-контроллер»", "initials": "АС", "name": "Айгерим Сатпаева", "role": "действующий кост-контроллер", "text": "Курс дал структуру: разложила по полочкам работу с калькуляционными картами и себестоимостью. Теперь веду учёт увереннее."},
+    {"tag": "Ученик курса «Кост-контроллер»", "initials": "НА", "name": "Нурлан Ахметов", "role": "собственник кафе", "text": "Наконец разобрался, куда уходит прибыль. Настроили склад и увидели реальный фудкост — сразу нашли, где теряли деньги."},
+    {"tag": "Ученица курса «Кост-контроллер»", "initials": "ДО", "name": "Динара Оспанова", "role": "управляющая рестораном", "text": "Практика на реальной базе — то, чего не хватало на других курсах. Всё понятно объясняется, без лишней теории."},
 ]
 
 def e(s):
@@ -107,9 +107,17 @@ career_points_html = "\n".join(f'''<div style="display:flex;gap:14px;align-items
   <p style="font:500 16px/1.55 'Onest',sans-serif;margin:0;color:#333333">{e(c)}</p>
 </div>''' for c in career_points)
 
-reviews_html = "\n".join(f'''<div style="background:#fff;border:1px solid #e0dede;border-radius:18px;padding:36px 32px;display:flex;flex-direction:column;gap:24px">
-  <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:9px 20px;font:700 13px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">{e(r["role"])}</span>
-  <h3 style="font:800 25px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:{ACCENT};margin:0">{e(r["name"])}</h3>
+reviews_html = "\n".join(f'''<div style="background:#fff;border:1px solid #e0dede;border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:22px">
+  <div style="display:flex;align-items:flex-start;gap:16px">
+    <div style="width:64px;height:64px;border-radius:14px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;flex:none">
+      <span style="font:800 20px/1 'Onest',sans-serif;color:{ACCENT}">{e(r["initials"])}</span>
+    </div>
+    <div>
+      <span style="display:inline-block;border:1px solid {ACCENT};color:{ACCENT};border-radius:20px;padding:7px 14px;font:600 12px/1 'Onest',sans-serif;margin:0 0 10px">{e(r["tag"])}</span>
+      <h3 style="font:800 20px/1.2 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:{ACCENT};margin:0 0 4px">{e(r["name"])}</h3>
+      <p style="font:500 13px/1.3 'Onest',sans-serif;margin:0;color:#8a8a8a">{e(r["role"])}</p>
+    </div>
+  </div>
   <p style="font:500 16px/1.55 'Onest',sans-serif;margin:0;color:#4a4a4a">{e(r["text"])}</p>
 </div>''' for r in reviews)
 
@@ -162,12 +170,18 @@ TEMPLATE = """<!doctype html>
   @media (max-width:900px){{
     .wrap{{min-width:0 !important}}
     .hide-mobile{{display:none !important}}
-    .grid-hero,.grid-lecturer,.grid-career,.grid-cta{{grid-template-columns:1fr !important}}
+    .grid-hero,.grid-lecturer,.grid-career,.grid-cta{{grid-template-columns:1fr !important;gap:32px !important}}
     .grid-audience{{grid-template-columns:1fr !important}}
-    .grid-modules{{grid-template-columns:1fr 1fr !important}}
-    .grid-steps{{grid-template-columns:1fr 1fr !important}}
+    .grid-bonus-hero{{grid-template-columns:1fr !important;text-align:left}}
     .grid-bonus2{{grid-template-columns:1fr !important}}
     .grid-reviews{{grid-template-columns:1fr !important}}
+    .section-inner{{padding-left:24px !important;padding-right:24px !important}}
+    .nowrap-note{{white-space:normal !important}}
+    .programs-scroll > div{{width:280px !important}}
+  }}
+  @media (max-width:640px){{
+    .grid-support2{{grid-template-columns:1fr !important}}
+    .programs-scroll > div{{width:260px !important}}
   }}
 </style>
 </head>
@@ -192,12 +206,12 @@ TEMPLATE = """<!doctype html>
   <div class="badge b4 hide-mobile" style="left:1390px;top:500px;width:50px;height:50px">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 4 8-9" stroke="{ACCENT}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h5v5" stroke="{ACCENT}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
-  <div class="grid-hero" style="max-width:1240px;margin:0 auto;padding:56px 40px 96px;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 460px;gap:64px;align-items:center">
+  <div class="grid-hero section-inner" style="max-width:1240px;margin:0 auto;padding:56px 40px 96px;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 460px;gap:64px;align-items:center">
     <div>
       <div class="logo-chip" style="margin:0 0 48px;padding:11px 16px">
         <img src="images/resto-logo.png" alt="Resto kz calculator" style="height:40px;display:block;border-radius:4px" />
       </div>
-      <h1 style="font:800 46px/1.16 'Onest',sans-serif;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin:0 0 26px">Кост-контроллер с нуля до уверенной работы в ресторане</h1>
+      <h1 style="font:800 clamp(28px,8vw,46px)/1.16 'Onest',sans-serif;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin:0 0 26px">Кост-контроллер с нуля до уверенной работы в общепите</h1>
       <div style="display:flex;gap:10px;margin:0 0 30px;flex-wrap:wrap">
         <span style="border:1px solid rgba(255,255,255,.42);border-radius:20px;padding:9px 18px;font:600 13px/1 'Onest',sans-serif;color:#fff">практическое обучение</span>
         <span style="border:1px solid rgba(255,255,255,.42);border-radius:20px;padding:9px 18px;font:600 13px/1 'Onest',sans-serif;color:#fff">9 модулей</span>
@@ -206,6 +220,10 @@ TEMPLATE = """<!doctype html>
       <div style="display:flex;gap:14px;align-items:flex-start;margin:0 0 40px;max-width:46ch">
         <span class="dash" style="color:rgba(255,255,255,.9)">—</span>
         <p style="font:500 18px/1.55 'Onest',sans-serif;margin:0;color:rgba(255,255,255,.92)">Практическое обучение калькуляции, технологическим картам, себестоимости, производственному и складскому учёту в HoReCa.</p>
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:12px 20px;margin:0 0 36px">
+        <span style="width:8px;height:8px;border-radius:50%;background:#fff;flex:none"></span>
+        <p style="font:800 18px/1.2 'Onest',sans-serif;margin:0;color:#fff">Зарабатывайте от 500 000 ₸ в месяц</p>
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
         <a href="#cta" class="btn" style="background:#14171c;color:#fff;min-height:60px;padding:0 34px;font-size:16px">Записаться на курс</a>
@@ -232,8 +250,8 @@ TEMPLATE = """<!doctype html>
 <section style="position:relative;overflow:hidden;border-bottom:1px solid #e9eaed">
   <div class="blob-soft blob-soft-b hide-mobile" style="width:420px;height:420px;left:-140px;top:-180px"></div>
   <div class="blob-soft blob-soft-a hide-mobile" style="width:360px;height:360px;right:-120px;bottom:-160px"></div>
-  <div style="max-width:1240px;margin:0 auto;padding:88px 40px;position:relative">
-    <h2 style="font:800 54px/1.1 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 48px">
+  <div class="section-inner" style="max-width:1240px;margin:0 auto;padding:88px 40px;position:relative">
+    <h2 style="font:800 clamp(30px,6.5vw,54px)/1.1 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 48px">
       <span style="color:#14171c">Кому подходит</span><br><span style="color:{ACCENT}">этот курс</span>
     </h2>
     <div class="grid-audience" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 32px">
@@ -245,8 +263,8 @@ TEMPLATE = """<!doctype html>
 <section style="position:relative;overflow:hidden;border-bottom:1px solid #e9eaed;background:#f5f5f5">
   <div class="blob-soft blob-soft-a hide-mobile" style="width:480px;height:480px;right:-140px;top:-200px"></div>
   <div class="blob-soft blob-soft-b hide-mobile" style="width:380px;height:380px;left:-120px;bottom:-180px"></div>
-  <div style="max-width:1240px;margin:0 auto;padding:88px 40px;position:relative">
-    <h2 style="font:800 54px/1.1 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 40px">
+  <div class="section-inner" style="max-width:1240px;margin:0 auto;padding:88px 40px;position:relative">
+    <h2 style="font:800 clamp(30px,6.5vw,54px)/1.1 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 40px">
       <span style="color:#14171c">Что вы</span><br><span style="color:{ACCENT}">научитесь делать:</span>
     </h2>
     <div style="display:flex;flex-wrap:wrap;gap:14px;max-width:1080px;margin:0 0 36px">
@@ -259,12 +277,12 @@ TEMPLATE = """<!doctype html>
 <section id="program" style="position:relative;overflow:hidden;border-bottom:1px solid #e9eaed">
   <div class="blob-soft blob-soft-a hide-mobile" style="width:460px;height:460px;right:-150px;top:-190px"></div>
   <div class="blob-soft blob-soft-b hide-mobile" style="width:400px;height:400px;left:-130px;bottom:-170px"></div>
-  <div style="max-width:1240px;margin:0 auto;padding:96px 40px;position:relative">
+  <div class="section-inner" style="max-width:1240px;margin:0 auto;padding:96px 40px;position:relative">
     <div style="display:flex;align-items:center;gap:18px;margin:0 0 24px">
-      <h2 style="font:800 54px/1.1 'Onest',sans-serif;letter-spacing:-.01em;color:#14171c;margin:0">Программа<br>курса</h2>
+      <h2 style="font:800 clamp(30px,6.5vw,54px)/1.1 'Onest',sans-serif;letter-spacing:-.01em;color:#14171c;margin:0">Программа<br>курса</h2>
       <svg width="44" height="44" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:10px"><circle cx="12" cy="12" r="11" stroke="{ACCENT}" stroke-width="1.4"/><path d="M7 8l4 4-4 4" stroke="{ACCENT}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 8l4 4-4 4" stroke="{ACCENT}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <p style="font:500 15px/1.6 'Onest',sans-serif;color:#8a8a8a;margin:0 0 40px;white-space:nowrap">[ Программа ориентировочная — финальная версия будет опубликована перед стартом потока ]</p>
+    <p class="nowrap-note" style="font:500 15px/1.6 'Onest',sans-serif;color:#8a8a8a;margin:0 0 40px;white-space:nowrap">[ Программа ориентировочная — финальная версия будет опубликована перед стартом потока ]</p>
     <div class="programs-scroll" style="display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:14px;margin:0 0 40px">
       {modules_html}
     </div>
@@ -275,22 +293,22 @@ TEMPLATE = """<!doctype html>
 <section id="lecturer" style="position:relative;background:{ACCENT};overflow:hidden">
   <div class="blob blob-b hide-mobile" style="width:600px;height:600px;left:-180px;top:-160px"></div>
   <div class="blob blob-a hide-mobile" style="width:460px;height:460px;right:-160px;bottom:-200px"></div>
-  <div class="grid-lecturer" style="max-width:1240px;margin:0 auto;padding:96px 40px;position:relative;display:grid;grid-template-columns:400px minmax(0,1fr);gap:64px;align-items:start">
-    <div style="position:relative;width:400px;height:520px">
-      <div style="position:absolute;left:0;bottom:0;width:100%;height:520px;background:#14171c;border-radius:18px"></div>
+  <div class="grid-lecturer section-inner" style="max-width:1240px;margin:0 auto;padding:96px 40px;position:relative;display:grid;grid-template-columns:400px minmax(0,1fr);gap:64px;align-items:start">
+    <div style="position:relative;width:100%;max-width:400px;aspect-ratio:400/520">
+      <div style="position:absolute;left:0;bottom:0;width:100%;height:100%;background:#14171c;border-radius:18px"></div>
       <img src="images/murat.webp" alt="Мурат Ибрагимов" style="position:absolute;left:0;bottom:0;width:100%;height:auto;display:block" />
     </div>
     <div>
-      <h2 style="font:800 42px/1.12 'Onest',sans-serif;letter-spacing:-.01em;color:#fff;margin:0 0 40px">Знакомьтесь — ваш<br>лектор на курсе</h2>
+      <h2 style="font:800 clamp(26px,5.5vw,42px)/1.12 'Onest',sans-serif;letter-spacing:-.01em;color:#fff;margin:0 0 40px">Знакомьтесь — ваш<br>лектор на курсе</h2>
       <h3 style="font:800 28px/1.2 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#fff;margin:0 0 12px">Мурат Ибрагимов</h3>
       <p style="font:500 14px/1.5 'Onest',sans-serif;color:rgba(255,255,255,.8);margin:0 0 30px">Кост-контроллер / эксперт по производственному и складскому учёту в HoReCa / преподаватель</p>
       <div style="display:flex;gap:56px;margin:0 0 34px">
         <div>
-          <p style="font:800 40px/1 'Onest',sans-serif;color:#fff;margin:0 0 8px">15 лет</p>
+          <p style="font:800 clamp(28px,6vw,40px)/1 'Onest',sans-serif;color:#fff;margin:0 0 8px">15 лет</p>
           <p style="font:600 14px/1.3 'Onest',sans-serif;color:rgba(255,255,255,.75);margin:0">практического опыта</p>
         </div>
         <div>
-          <p style="font:800 40px/1 'Onest',sans-serif;color:#fff;margin:0 0 8px">Resto</p>
+          <p style="font:800 clamp(28px,6vw,40px)/1 'Onest',sans-serif;color:#fff;margin:0 0 8px">Resto</p>
           <p style="font:600 14px/1.3 'Onest',sans-serif;color:rgba(255,255,255,.75);margin:0">Calculator — учредитель</p>
         </div>
       </div>
@@ -304,11 +322,11 @@ TEMPLATE = """<!doctype html>
 <section style="position:relative;overflow:hidden;border-bottom:1px solid #e9eaed;background:#f5f5f5">
   <div class="blob-soft blob-soft-b hide-mobile" style="width:440px;height:440px;right:-150px;top:-180px"></div>
   <div class="blob-soft blob-soft-a hide-mobile" style="width:360px;height:360px;left:-110px;bottom:-160px"></div>
-  <div style="max-width:1240px;margin:0 auto;padding:88px 40px;position:relative">
-    <h2 style="font:800 42px/1.12 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 40px">
+  <div class="section-inner" style="max-width:1240px;margin:0 auto;padding:88px 40px;position:relative">
+    <h2 style="font:800 clamp(26px,5.5vw,42px)/1.12 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 40px">
       <span style="color:#14171c">Бонусы</span><br><span style="color:{ACCENT}">для учеников</span>
     </h2>
-    <div style="background:{ACCENT};border-radius:18px;padding:44px 48px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:36px;align-items:center;margin:0 0 20px">
+    <div class="grid-bonus-hero" style="background:{ACCENT};border-radius:18px;padding:44px 48px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:36px;align-items:center;margin:0 0 20px">
       <p style="font:800 96px/.8 'Onest',sans-serif;color:#fff;margin:0">30</p>
       <div>
         <h3 style="font:800 24px/1.2 'Onest',sans-serif;color:#fff;margin:0 0 12px;text-transform:uppercase">iiko на 30 дней</h3>
@@ -330,7 +348,7 @@ TEMPLATE = """<!doctype html>
     <div style="background:#fff;border:1.5px solid {ACCENT};border-radius:18px;padding:36px 32px">
       <span style="display:block;font:700 12px/1 'Onest',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:{ACCENT};margin:0 0 16px">доп. услуга</span>
       <h3 style="font:800 21px/1.2 'Onest',sans-serif;color:#14171c;margin:0 0 22px">Сопровождение после курса</h3>
-      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 32px">
+      <div class="grid-support2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 32px">
         {support_items_html}
       </div>
     </div>
@@ -340,9 +358,9 @@ TEMPLATE = """<!doctype html>
 <section style="position:relative;overflow:hidden;border-bottom:1px solid #e9eaed">
   <div class="blob-soft blob-soft-a hide-mobile" style="width:400px;height:400px;left:-130px;top:-170px"></div>
   <div class="blob-soft blob-soft-b hide-mobile" style="width:340px;height:340px;right:-110px;bottom:-150px"></div>
-  <div class="grid-career" style="max-width:1320px;margin:0 auto;padding:96px 40px;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:56px;align-items:center">
+  <div class="grid-career section-inner" style="max-width:1320px;margin:0 auto;padding:96px 40px;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:56px;align-items:center">
     <div>
-      <h2 style="font:800 54px/1.1 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 30px">
+      <h2 style="font:800 clamp(30px,6.5vw,54px)/1.1 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 30px">
         <span style="color:{ACCENT}">Карьера</span><br><span style="color:#14171c">после курса</span>
       </h2>
       <p style="font:500 16px/1.6 'Onest',sans-serif;margin:0 0 26px;color:#4a4a4a;max-width:48ch">После успешного завершения курса каждый участник получит сертификат, подтверждающий приобретённые знания и навыки — отличное дополнение к профессиональному портфолио.</p>
@@ -362,8 +380,8 @@ TEMPLATE = """<!doctype html>
 <section style="position:relative;overflow:hidden;border-bottom:1px solid #e9eaed;background:#f5f5f5">
   <div class="blob-soft blob-soft-b hide-mobile" style="width:420px;height:420px;right:-140px;top:-170px"></div>
   <div class="blob-soft blob-soft-a hide-mobile" style="width:340px;height:340px;left:-110px;bottom:-150px"></div>
-  <div style="max-width:1240px;margin:0 auto;padding:96px 40px;position:relative">
-    <h2 style="font:800 54px/1.1 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 48px">
+  <div class="section-inner" style="max-width:1240px;margin:0 auto;padding:96px 40px;position:relative">
+    <h2 style="font:800 clamp(30px,6.5vw,54px)/1.1 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 48px">
       <span style="color:{ACCENT}">Отзывы</span><br><span style="color:#14171c">от учеников</span>
     </h2>
     <div class="grid-reviews" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
@@ -375,9 +393,9 @@ TEMPLATE = """<!doctype html>
 <section id="cta" style="position:relative;background:{ACCENT};overflow:hidden">
   <div class="blob blob-c hide-mobile" style="width:400px;height:400px;left:-140px;top:-160px"></div>
   <div class="blob blob-b hide-mobile" style="width:560px;height:560px;right:-200px;bottom:-220px"></div>
-  <div class="grid-cta" style="max-width:1240px;margin:0 auto;padding:100px 40px;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:40px;align-items:center">
+  <div class="grid-cta section-inner" style="max-width:1240px;margin:0 auto;padding:100px 40px;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:40px;align-items:center">
     <div>
-      <h2 style="font:800 60px/1.02 'Onest',sans-serif;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin:0 0 30px">Остались<br>вопросы?</h2>
+      <h2 style="font:800 clamp(32px,8vw,60px)/1.02 'Onest',sans-serif;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin:0 0 30px">Остались<br>вопросы?</h2>
       <div style="display:flex;gap:14px;align-items:flex-start;max-width:52ch;margin:0 0 40px">
         <span class="dash" style="color:#fff">—</span>
         <p style="font:500 18px/1.6 'Onest',sans-serif;margin:0;color:rgba(255,255,255,.92)">Чтобы узнать подробнее о курсе «Кост-контроллер», оставляйте заявку — расскажем про даты старта, формат обучения и стоимость.</p>
@@ -416,7 +434,7 @@ TEMPLATE = """<!doctype html>
 </section>
 
 <footer style="background:#14171c">
-  <div style="max-width:1240px;margin:0 auto;padding:48px 40px;display:flex;align-items:center;gap:40px;flex-wrap:wrap">
+  <div class="section-inner" style="max-width:1240px;margin:0 auto;padding:48px 40px;display:flex;align-items:center;gap:40px;flex-wrap:wrap">
     <div style="display:flex;flex-direction:column;gap:16px;max-width:260px">
       <span class="logo-chip" style="align-self:flex-start">
         <img src="images/resto-logo.png" alt="Resto kz calculator" style="height:28px;display:block;border-radius:3px" />
@@ -439,7 +457,7 @@ TEMPLATE = """<!doctype html>
       <a href="#cta" class="btn btn-outline" style="border:1px solid rgba(255,255,255,.35);color:#fff;min-height:48px;padding:0 24px;font-size:13px">заказать звонок</a>
     </div>
   </div>
-  <div style="max-width:1240px;margin:0 auto;padding:0 40px 32px"><p style="font:500 12.5px/1.5 'Onest',sans-serif;color:rgba(255,255,255,.32);margin:0;border-top:1px solid rgba(255,255,255,.1);padding-top:20px">© 2026 Resto.kz calculator. Все права защищены.</p></div>
+  <div class="section-inner" style="max-width:1240px;margin:0 auto;padding:0 40px 32px"><p style="font:500 12.5px/1.5 'Onest',sans-serif;color:rgba(255,255,255,.32);margin:0;border-top:1px solid rgba(255,255,255,.1);padding-top:20px">© 2026 Resto.kz calculator. Все права защищены.</p></div>
 </footer>
 
 <a href="https://wa.me/77715427246" style="position:fixed;right:32px;bottom:32px;z-index:40;width:58px;height:58px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.25)">
