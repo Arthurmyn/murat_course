@@ -42,10 +42,8 @@
   .b4{animation:bob4 7s ease-in-out infinite}
   @keyframes floatCard{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-16px) rotate(1deg)}}
   .chart-card{position:absolute;background:#fff;border-radius:28px;box-shadow:0 26px 54px rgba(0,0,0,.3);animation:floatCard 7s ease-in-out infinite;overflow:hidden}
-  .programs-scroll{-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#e0dede transparent}
-  .programs-scroll::-webkit-scrollbar{height:6px}
-  .programs-scroll::-webkit-scrollbar-track{background:transparent}
-  .programs-scroll::-webkit-scrollbar-thumb{background:#e0dede;border-radius:3px}
+  .programs-scroll{-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .programs-scroll::-webkit-scrollbar{display:none}
   @media (max-width:900px){
     .wrap{min-width:0 !important}
     .hide-mobile{display:none !important}
@@ -163,15 +161,15 @@
       <span style="color:#14171c">Что вы</span><br><span style="color:#a20202">научитесь делать:</span>
     </h2>
     <div style="display:flex;flex-wrap:wrap;gap:14px;max-width:1080px;margin:0 0 36px">
-      <span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">рассчитывать себестоимость блюд</span>
-<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">создавать и проверять технологические карты</span>
-<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">работать с сырьём и полуфабрикатами</span>
-<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">вести производственный учёт</span>
-<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">контролировать склад</span>
-<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">проводить инвентаризации</span>
-<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">находить расхождения и потери</span>
-<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">работать в iiko</span>
-<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">понимать реальные цифры ресторана</span>
+      <span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">Рассчитывать себестоимость блюд</span>
+<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">Создавать и проверять технологические карты</span>
+<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">Работать с сырьём и полуфабрикатами</span>
+<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">Вести производственный учёт</span>
+<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">Контролировать склад</span>
+<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">Проводить инвентаризации</span>
+<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">Находить расхождения и потери</span>
+<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">Работать в IIKO</span>
+<span style="background:#fff;border:1px solid #e0dede;border-radius:26px;padding:18px 28px;font:600 18px/1 'Onest',sans-serif;color:#14171c">Понимать реальные цифры ресторана</span>
     </div>
     <a href="#program" class="btn" style="background:#a20202;color:#fff;min-height:52px;padding:0 26px;font-size:14px">Посмотреть программу</a>
   </div>
@@ -185,43 +183,169 @@
       <h2 style="font:800 54px/1.1 'Onest',sans-serif;letter-spacing:-.01em;color:#14171c;margin:0">Программа<br>курса</h2>
       <svg width="44" height="44" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:10px"><circle cx="12" cy="12" r="11" stroke="#a20202" stroke-width="1.4"/><path d="M7 8l4 4-4 4" stroke="#a20202" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 8l4 4-4 4" stroke="#a20202" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <p style="font:500 15px/1.6 'Onest',sans-serif;color:#8a8a8a;margin:0 0 40px;white-space:nowrap">[ Темы и практические задания каждого модуля уточняются — программа будет опубликована перед стартом потока ]</p>
+    <p style="font:500 15px/1.6 'Onest',sans-serif;color:#8a8a8a;margin:0 0 40px;white-space:nowrap">[ Программа ориентировочная — финальная версия будет опубликована перед стартом потока ]</p>
     <div class="programs-scroll" style="display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:14px;margin:0 0 40px">
-      <div style="flex:none;width:280px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+      <div style="flex:none;width:320px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
   <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">Модуль 1</span>
   <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#a20202;margin:0">Профессия бухгалтера-калькулятора</h3>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Кто такой бухгалтер-калькулятор</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Задачи и зона ответственности</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Инструменты и системы учёта в HoReCa</p>
+  </div>
+  </div>
 </div>
-<div style="flex:none;width:280px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+<div style="flex:none;width:320px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
   <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">Модуль 2</span>
   <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#a20202;margin:0">Технологические карты</h3>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Создание технологических карт</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Калькуляционные карты и расход сырья</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Проверка и корректировка карт</p>
+  </div>
+  </div>
 </div>
-<div style="flex:none;width:280px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+<div style="flex:none;width:320px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
   <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">Модуль 3</span>
   <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#a20202;margin:0">Себестоимость</h3>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Расчёт себестоимости блюда</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Анализ фудкоста</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Формирование наценки</p>
+  </div>
+  </div>
 </div>
-<div style="flex:none;width:280px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+<div style="flex:none;width:320px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
   <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">Модуль 4</span>
   <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#a20202;margin:0">Сырьё и полуфабрикаты</h3>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Учёт сырья и полуфабрикатов</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Номенклатура: товары, заготовки, блюда</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Расход сырья по рецептуре</p>
+  </div>
+  </div>
 </div>
-<div style="flex:none;width:280px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+<div style="flex:none;width:320px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
   <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">Модуль 5</span>
   <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#a20202;margin:0">Производство</h3>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Производственный учёт</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Контроль расхода на производстве</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Списания и потери</p>
+  </div>
+  </div>
 </div>
-<div style="flex:none;width:280px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+<div style="flex:none;width:320px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
   <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">Модуль 6</span>
   <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#a20202;margin:0">Складской учёт</h3>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Приходные и расходные накладные</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Внутренние перемещения</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Контроль складских операций</p>
+  </div>
+  </div>
 </div>
-<div style="flex:none;width:280px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+<div style="flex:none;width:320px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
   <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">Модуль 7</span>
   <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#a20202;margin:0">Инвентаризация</h3>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Подготовка к инвентаризации</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Проведение инвентаризации</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Анализ результатов и расхождений</p>
+  </div>
+  </div>
 </div>
-<div style="flex:none;width:280px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+<div style="flex:none;width:320px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
   <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">Модуль 8</span>
-  <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#a20202;margin:0">Работа в iiko</h3>
+  <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#a20202;margin:0">Работа в IIKO</h3>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Интерфейс и настройки программы</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Номенклатура и калькуляционные карты в IIKO</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Отчёты и аналитика</p>
+  </div>
+  </div>
 </div>
-<div style="flex:none;width:280px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+<div style="flex:none;width:320px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
   <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">Модуль 9</span>
   <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#a20202;margin:0">Практические задания</h3>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Разбор реальных кейсов</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Практика на учебной базе</p>
+  </div>
+<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="#a20202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">Итоговое задание</p>
+  </div>
+  </div>
 </div>
     </div>
     <a href="#cta" class="btn" style="background:#a20202;color:#fff;min-height:54px;padding:0 28px;font-size:14px">Записаться на курс</a>
@@ -242,11 +366,11 @@
       <p style="font:500 16px/1.5 'Onest',sans-serif;color:rgba(255,255,255,.8);margin:0 0 30px">Бухгалтер-калькулятор / эксперт по производственному и складскому учёту в HoReCa / преподаватель</p>
       <div style="display:flex;gap:56px;margin:0 0 34px">
         <div>
-          <p style="font:800 40px/1 'Onest',sans-serif;color:#14171c;margin:0 0 8px">15 лет</p>
+          <p style="font:800 40px/1 'Onest',sans-serif;color:#fff;margin:0 0 8px">15 лет</p>
           <p style="font:600 14px/1.3 'Onest',sans-serif;color:rgba(255,255,255,.75);margin:0">практического опыта</p>
         </div>
         <div>
-          <p style="font:800 40px/1 'Onest',sans-serif;color:#14171c;margin:0 0 8px">Resto</p>
+          <p style="font:800 40px/1 'Onest',sans-serif;color:#fff;margin:0 0 8px">Resto</p>
           <p style="font:600 14px/1.3 'Onest',sans-serif;color:rgba(255,255,255,.75);margin:0">Calculator — учредитель</p>
         </div>
       </div>
@@ -276,7 +400,7 @@
       <span style="color:#14171c">Бонусы</span><br><span style="color:#a20202">для учеников</span>
     </h2>
     <div style="background:#a20202;border-radius:18px;padding:44px 48px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:36px;align-items:center;margin:0 0 20px">
-      <p style="font:800 96px/.8 'Onest',sans-serif;color:#14171c;margin:0">30</p>
+      <p style="font:800 96px/.8 'Onest',sans-serif;color:#fff;margin:0">30</p>
       <div>
         <h3 style="font:800 24px/1.2 'Onest',sans-serif;color:#fff;margin:0 0 12px;text-transform:uppercase">iiko на 30 дней</h3>
         <p style="font:500 15.5px/1.55 'Onest',sans-serif;margin:0;color:rgba(255,255,255,.88);max-width:56ch">Установка программы iiko на ваш компьютер на 30 дней — практика в настоящей базе, а не на скриншотах.</p>
@@ -328,9 +452,10 @@
   <div class="blob-soft blob-soft-b hide-mobile" style="width:340px;height:340px;right:-110px;bottom:-150px"></div>
   <div class="grid-career" style="max-width:1240px;margin:0 auto;padding:96px 40px;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 460px;gap:64px;align-items:center">
     <div>
-      <h2 style="font:800 42px/1.12 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 34px">
+      <h2 style="font:800 54px/1.1 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 30px">
         <span style="color:#a20202">Карьера</span><br><span style="color:#14171c">после курса</span>
       </h2>
+      <p style="font:500 16px/1.6 'Onest',sans-serif;margin:0 0 26px;color:#4a4a4a;max-width:48ch">После успешного завершения курса каждый участник получит сертификат, подтверждающий приобретённые знания и навыки — отличное дополнение к профессиональному портфолио.</p>
       <div style="display:flex;flex-direction:column;gap:16px;max-width:46ch">
         <div style="display:flex;gap:14px;align-items:flex-start">
   <span class="dash">—</span>
@@ -347,11 +472,18 @@
       </div>
     </div>
     <div class="hide-mobile" style="position:relative;height:340px">
-      <div style="position:absolute;left:36px;top:26px;width:320px;height:220px;background:#f5f5f5;border:1px solid #e0dede;border-radius:14px;transform:rotate(-4deg);box-shadow:0 18px 40px rgba(20,23,28,.08)"></div>
-      <div style="position:absolute;left:0;top:0;width:320px;height:220px;background:#a20202;border-radius:14px;transform:rotate(3deg);box-shadow:0 18px 40px rgba(20,23,28,.14);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;padding:24px;box-sizing:border-box">
-        <span style="font:700 10px/1 'Onest',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)">Сертификат</span>
-        <span style="font:800 17px/1.25 'Onest',sans-serif;color:#fff;text-align:center;text-transform:uppercase">Бухгалтер-калькулятор</span>
-        <span style="font:500 11px/1.4 'Onest',sans-serif;color:rgba(255,255,255,.6);text-align:center">[ макет предоставит заказчик ]</span>
+      <div style="position:absolute;left:44px;top:34px;width:320px;height:220px;background:#f5f5f5;border:1px solid #e0dede;border-radius:14px;transform:rotate(-5deg);box-shadow:0 18px 40px rgba(20,23,28,.08)"></div>
+      <div style="position:absolute;left:0;top:0;width:320px;height:220px;background:#a20202;border-radius:14px;transform:rotate(3deg);box-shadow:0 18px 40px rgba(20,23,28,.16);padding:22px 24px;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden">
+        <div style="position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;border:1px solid rgba(255,255,255,.18)"></div>
+        <span style="font:700 10px/1 'Onest',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65)">Сертификат</span>
+        <span style="font:800 20px/1.2 'Onest',sans-serif;color:#fff;text-transform:uppercase;margin-top:8px">Бухгалтер-калькулятор</span>
+        <span style="font:500 12px/1.4 'Onest',sans-serif;color:rgba(255,255,255,.55);margin-top:10px;border-top:1px solid rgba(255,255,255,.25);padding-top:10px">[ ФИО участника ]</span>
+        <div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between">
+          <span style="font:500 10px/1.3 'Onest',sans-serif;color:rgba(255,255,255,.45)">[ макет предоставит заказчик ]</span>
+          <span style="width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;flex:none">
+            <svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5.5L5 9.5L13 1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -361,37 +493,24 @@
   <div class="blob-soft blob-soft-b hide-mobile" style="width:420px;height:420px;right:-140px;top:-170px"></div>
   <div class="blob-soft blob-soft-a hide-mobile" style="width:340px;height:340px;left:-110px;bottom:-150px"></div>
   <div style="max-width:1240px;margin:0 auto;padding:96px 40px;position:relative">
-    <h2 style="font:800 42px/1.12 'Onest',sans-serif;letter-spacing:-.01em;color:#14171c;margin:0 0 48px">Отзывы<br>от учеников</h2>
+    <h2 style="font:800 54px/1.1 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 48px">
+      <span style="color:#a20202">Отзывы</span><br><span style="color:#14171c">от учеников</span>
+    </h2>
     <div class="grid-reviews" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
-      <div style="background:#fff;border:1.5px dashed #c6c6c6;border-radius:16px;padding:28px">
-  <div style="display:flex;align-items:center;gap:14px;margin:0 0 22px">
-    <span style="width:48px;height:48px;border-radius:50%;background:#e9eaed;flex:none"></span>
-    <div>
-      <p style="font:700 15px/1.25 'Onest',sans-serif;margin:0 0 3px;color:#a20202">[ Имя ]</p>
-      <p style="font:500 12.5px/1.2 'Onest',sans-serif;margin:0;color:#8a8a8a">[ роль / должность ]</p>
-    </div>
-  </div>
-  <p style="font:500 15px/1.55 'Onest',sans-serif;margin:0;color:#8a8a8a">[ Текст отзыва — контент предоставит заказчик после первого потока ]</p>
+      <div style="background:#fff;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+  <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">[ роль / должность ]</span>
+  <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#a20202;margin:0">[ Имя ]</h3>
+  <p style="font:500 15px/1.55 'Onest',sans-serif;margin:0;color:#4a4a4a">[ Текст отзыва — контент предоставит заказчик после первого потока ]</p>
 </div>
-<div style="background:#fff;border:1.5px dashed #c6c6c6;border-radius:16px;padding:28px">
-  <div style="display:flex;align-items:center;gap:14px;margin:0 0 22px">
-    <span style="width:48px;height:48px;border-radius:50%;background:#e9eaed;flex:none"></span>
-    <div>
-      <p style="font:700 15px/1.25 'Onest',sans-serif;margin:0 0 3px;color:#a20202">[ Имя ]</p>
-      <p style="font:500 12.5px/1.2 'Onest',sans-serif;margin:0;color:#8a8a8a">[ роль / должность ]</p>
-    </div>
-  </div>
-  <p style="font:500 15px/1.55 'Onest',sans-serif;margin:0;color:#8a8a8a">[ Текст отзыва — контент предоставит заказчик после первого потока ]</p>
+<div style="background:#fff;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+  <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">[ роль / должность ]</span>
+  <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#a20202;margin:0">[ Имя ]</h3>
+  <p style="font:500 15px/1.55 'Onest',sans-serif;margin:0;color:#4a4a4a">[ Текст отзыва — контент предоставит заказчик после первого потока ]</p>
 </div>
-<div style="background:#fff;border:1.5px dashed #c6c6c6;border-radius:16px;padding:28px">
-  <div style="display:flex;align-items:center;gap:14px;margin:0 0 22px">
-    <span style="width:48px;height:48px;border-radius:50%;background:#e9eaed;flex:none"></span>
-    <div>
-      <p style="font:700 15px/1.25 'Onest',sans-serif;margin:0 0 3px;color:#a20202">[ Имя ]</p>
-      <p style="font:500 12.5px/1.2 'Onest',sans-serif;margin:0;color:#8a8a8a">[ роль / должность ]</p>
-    </div>
-  </div>
-  <p style="font:500 15px/1.55 'Onest',sans-serif;margin:0;color:#8a8a8a">[ Текст отзыва — контент предоставит заказчик после первого потока ]</p>
+<div style="background:#fff;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+  <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">[ роль / должность ]</span>
+  <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#a20202;margin:0">[ Имя ]</h3>
+  <p style="font:500 15px/1.55 'Onest',sans-serif;margin:0;color:#4a4a4a">[ Текст отзыва — контент предоставит заказчик после первого потока ]</p>
 </div>
     </div>
   </div>

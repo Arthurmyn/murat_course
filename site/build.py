@@ -11,27 +11,27 @@ audience = [
 ]
 
 skills = [
-    "рассчитывать себестоимость блюд",
-    "создавать и проверять технологические карты",
-    "работать с сырьём и полуфабрикатами",
-    "вести производственный учёт",
-    "контролировать склад",
-    "проводить инвентаризации",
-    "находить расхождения и потери",
-    "работать в iiko",
-    "понимать реальные цифры ресторана",
+    "Рассчитывать себестоимость блюд",
+    "Создавать и проверять технологические карты",
+    "Работать с сырьём и полуфабрикатами",
+    "Вести производственный учёт",
+    "Контролировать склад",
+    "Проводить инвентаризации",
+    "Находить расхождения и потери",
+    "Работать в IIKO",
+    "Понимать реальные цифры ресторана",
 ]
 
 modules = [
-    {"num": "1", "title": "Профессия бухгалтера-калькулятора"},
-    {"num": "2", "title": "Технологические карты"},
-    {"num": "3", "title": "Себестоимость"},
-    {"num": "4", "title": "Сырьё и полуфабрикаты"},
-    {"num": "5", "title": "Производство"},
-    {"num": "6", "title": "Складской учёт"},
-    {"num": "7", "title": "Инвентаризация"},
-    {"num": "8", "title": "Работа в iiko"},
-    {"num": "9", "title": "Практические задания"},
+    {"num": "1", "title": "Профессия бухгалтера-калькулятора", "topics": ["Кто такой бухгалтер-калькулятор", "Задачи и зона ответственности", "Инструменты и системы учёта в HoReCa"]},
+    {"num": "2", "title": "Технологические карты", "topics": ["Создание технологических карт", "Калькуляционные карты и расход сырья", "Проверка и корректировка карт"]},
+    {"num": "3", "title": "Себестоимость", "topics": ["Расчёт себестоимости блюда", "Анализ фудкоста", "Формирование наценки"]},
+    {"num": "4", "title": "Сырьё и полуфабрикаты", "topics": ["Учёт сырья и полуфабрикатов", "Номенклатура: товары, заготовки, блюда", "Расход сырья по рецептуре"]},
+    {"num": "5", "title": "Производство", "topics": ["Производственный учёт", "Контроль расхода на производстве", "Списания и потери"]},
+    {"num": "6", "title": "Складской учёт", "topics": ["Приходные и расходные накладные", "Внутренние перемещения", "Контроль складских операций"]},
+    {"num": "7", "title": "Инвентаризация", "topics": ["Подготовка к инвентаризации", "Проведение инвентаризации", "Анализ результатов и расхождений"]},
+    {"num": "8", "title": "Работа в IIKO", "topics": ["Интерфейс и настройки программы", "Номенклатура и калькуляционные карты в IIKO", "Отчёты и аналитика"]},
+    {"num": "9", "title": "Практические задания", "topics": ["Разбор реальных кейсов", "Практика на учебной базе", "Итоговое задание"]},
 ]
 
 lecturer_facts = [
@@ -78,9 +78,18 @@ audience_html = "\n".join(f'''<div>
   </div>
 </div>''' for a in audience)
 
-modules_html = "\n".join(f'''<div style="flex:none;width:280px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+def _topics(topics):
+    return "\n".join(f'''<div style="display:flex;gap:9px;align-items:flex-start">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="{ACCENT}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">{e(t)}</p>
+  </div>''' for t in topics)
+
+modules_html = "\n".join(f'''<div style="flex:none;width:320px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
   <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">Модуль {e(m["num"])}</span>
   <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:{ACCENT};margin:0">{e(m["title"])}</h3>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    {_topics(m["topics"])}
+  </div>
 </div>''' for m in modules)
 
 lecturer_facts_html = "\n".join(f'''<div style="display:flex;gap:14px;align-items:flex-start">
@@ -98,15 +107,10 @@ career_points_html = "\n".join(f'''<div style="display:flex;gap:14px;align-items
   <p style="font:500 16px/1.55 'Onest',sans-serif;margin:0;color:#333333">{e(c)}</p>
 </div>''' for c in career_points)
 
-reviews_html = "\n".join(f'''<div style="background:#fff;border:1.5px dashed #c6c6c6;border-radius:16px;padding:28px">
-  <div style="display:flex;align-items:center;gap:14px;margin:0 0 22px">
-    <span style="width:48px;height:48px;border-radius:50%;background:#e9eaed;flex:none"></span>
-    <div>
-      <p style="font:700 15px/1.25 'Onest',sans-serif;margin:0 0 3px;color:{ACCENT}">{e(r["name"])}</p>
-      <p style="font:500 12.5px/1.2 'Onest',sans-serif;margin:0;color:#8a8a8a">{e(r["role"])}</p>
-    </div>
-  </div>
-  <p style="font:500 15px/1.55 'Onest',sans-serif;margin:0;color:#8a8a8a">{e(r["text"])}</p>
+reviews_html = "\n".join(f'''<div style="background:#fff;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+  <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">{e(r["role"])}</span>
+  <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:{ACCENT};margin:0">{e(r["name"])}</h3>
+  <p style="font:500 15px/1.55 'Onest',sans-serif;margin:0;color:#4a4a4a">{e(r["text"])}</p>
 </div>''' for r in reviews)
 
 TEMPLATE = """<!doctype html>
@@ -153,10 +157,8 @@ TEMPLATE = """<!doctype html>
   .b4{{animation:bob4 7s ease-in-out infinite}}
   @keyframes floatCard{{0%,100%{{transform:translateY(0) rotate(-2deg)}}50%{{transform:translateY(-16px) rotate(1deg)}}}}
   .chart-card{{position:absolute;background:#fff;border-radius:28px;box-shadow:0 26px 54px rgba(0,0,0,.3);animation:floatCard 7s ease-in-out infinite;overflow:hidden}}
-  .programs-scroll{{-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#e0dede transparent}}
-  .programs-scroll::-webkit-scrollbar{{height:6px}}
-  .programs-scroll::-webkit-scrollbar-track{{background:transparent}}
-  .programs-scroll::-webkit-scrollbar-thumb{{background:#e0dede;border-radius:3px}}
+  .programs-scroll{{-webkit-overflow-scrolling:touch;scrollbar-width:none}}
+  .programs-scroll::-webkit-scrollbar{{display:none}}
   @media (max-width:900px){{
     .wrap{{min-width:0 !important}}
     .hide-mobile{{display:none !important}}
@@ -262,7 +264,7 @@ TEMPLATE = """<!doctype html>
       <h2 style="font:800 54px/1.1 'Onest',sans-serif;letter-spacing:-.01em;color:#14171c;margin:0">Программа<br>курса</h2>
       <svg width="44" height="44" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:10px"><circle cx="12" cy="12" r="11" stroke="{ACCENT}" stroke-width="1.4"/><path d="M7 8l4 4-4 4" stroke="{ACCENT}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 8l4 4-4 4" stroke="{ACCENT}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <p style="font:500 15px/1.6 'Onest',sans-serif;color:#8a8a8a;margin:0 0 40px;white-space:nowrap">[ Темы и практические задания каждого модуля уточняются — программа будет опубликована перед стартом потока ]</p>
+    <p style="font:500 15px/1.6 'Onest',sans-serif;color:#8a8a8a;margin:0 0 40px;white-space:nowrap">[ Программа ориентировочная — финальная версия будет опубликована перед стартом потока ]</p>
     <div class="programs-scroll" style="display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:14px;margin:0 0 40px">
       {modules_html}
     </div>
@@ -284,11 +286,11 @@ TEMPLATE = """<!doctype html>
       <p style="font:500 16px/1.5 'Onest',sans-serif;color:rgba(255,255,255,.8);margin:0 0 30px">Бухгалтер-калькулятор / эксперт по производственному и складскому учёту в HoReCa / преподаватель</p>
       <div style="display:flex;gap:56px;margin:0 0 34px">
         <div>
-          <p style="font:800 40px/1 'Onest',sans-serif;color:#14171c;margin:0 0 8px">15 лет</p>
+          <p style="font:800 40px/1 'Onest',sans-serif;color:#fff;margin:0 0 8px">15 лет</p>
           <p style="font:600 14px/1.3 'Onest',sans-serif;color:rgba(255,255,255,.75);margin:0">практического опыта</p>
         </div>
         <div>
-          <p style="font:800 40px/1 'Onest',sans-serif;color:#14171c;margin:0 0 8px">Resto</p>
+          <p style="font:800 40px/1 'Onest',sans-serif;color:#fff;margin:0 0 8px">Resto</p>
           <p style="font:600 14px/1.3 'Onest',sans-serif;color:rgba(255,255,255,.75);margin:0">Calculator — учредитель</p>
         </div>
       </div>
@@ -307,7 +309,7 @@ TEMPLATE = """<!doctype html>
       <span style="color:#14171c">Бонусы</span><br><span style="color:{ACCENT}">для учеников</span>
     </h2>
     <div style="background:{ACCENT};border-radius:18px;padding:44px 48px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:36px;align-items:center;margin:0 0 20px">
-      <p style="font:800 96px/.8 'Onest',sans-serif;color:#14171c;margin:0">30</p>
+      <p style="font:800 96px/.8 'Onest',sans-serif;color:#fff;margin:0">30</p>
       <div>
         <h3 style="font:800 24px/1.2 'Onest',sans-serif;color:#fff;margin:0 0 12px;text-transform:uppercase">iiko на 30 дней</h3>
         <p style="font:500 15.5px/1.55 'Onest',sans-serif;margin:0;color:rgba(255,255,255,.88);max-width:56ch">Установка программы iiko на ваш компьютер на 30 дней — практика в настоящей базе, а не на скриншотах.</p>
@@ -340,19 +342,27 @@ TEMPLATE = """<!doctype html>
   <div class="blob-soft blob-soft-b hide-mobile" style="width:340px;height:340px;right:-110px;bottom:-150px"></div>
   <div class="grid-career" style="max-width:1240px;margin:0 auto;padding:96px 40px;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 460px;gap:64px;align-items:center">
     <div>
-      <h2 style="font:800 42px/1.12 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 34px">
+      <h2 style="font:800 54px/1.1 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 30px">
         <span style="color:{ACCENT}">Карьера</span><br><span style="color:#14171c">после курса</span>
       </h2>
+      <p style="font:500 16px/1.6 'Onest',sans-serif;margin:0 0 26px;color:#4a4a4a;max-width:48ch">После успешного завершения курса каждый участник получит сертификат, подтверждающий приобретённые знания и навыки — отличное дополнение к профессиональному портфолио.</p>
       <div style="display:flex;flex-direction:column;gap:16px;max-width:46ch">
         {career_points_html}
       </div>
     </div>
     <div class="hide-mobile" style="position:relative;height:340px">
-      <div style="position:absolute;left:36px;top:26px;width:320px;height:220px;background:#f5f5f5;border:1px solid #e0dede;border-radius:14px;transform:rotate(-4deg);box-shadow:0 18px 40px rgba(20,23,28,.08)"></div>
-      <div style="position:absolute;left:0;top:0;width:320px;height:220px;background:{ACCENT};border-radius:14px;transform:rotate(3deg);box-shadow:0 18px 40px rgba(20,23,28,.14);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;padding:24px;box-sizing:border-box">
-        <span style="font:700 10px/1 'Onest',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)">Сертификат</span>
-        <span style="font:800 17px/1.25 'Onest',sans-serif;color:#fff;text-align:center;text-transform:uppercase">Бухгалтер-калькулятор</span>
-        <span style="font:500 11px/1.4 'Onest',sans-serif;color:rgba(255,255,255,.6);text-align:center">[ макет предоставит заказчик ]</span>
+      <div style="position:absolute;left:44px;top:34px;width:320px;height:220px;background:#f5f5f5;border:1px solid #e0dede;border-radius:14px;transform:rotate(-5deg);box-shadow:0 18px 40px rgba(20,23,28,.08)"></div>
+      <div style="position:absolute;left:0;top:0;width:320px;height:220px;background:{ACCENT};border-radius:14px;transform:rotate(3deg);box-shadow:0 18px 40px rgba(20,23,28,.16);padding:22px 24px;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden">
+        <div style="position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;border:1px solid rgba(255,255,255,.18)"></div>
+        <span style="font:700 10px/1 'Onest',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65)">Сертификат</span>
+        <span style="font:800 20px/1.2 'Onest',sans-serif;color:#fff;text-transform:uppercase;margin-top:8px">Бухгалтер-калькулятор</span>
+        <span style="font:500 12px/1.4 'Onest',sans-serif;color:rgba(255,255,255,.55);margin-top:10px;border-top:1px solid rgba(255,255,255,.25);padding-top:10px">[ ФИО участника ]</span>
+        <div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between">
+          <span style="font:500 10px/1.3 'Onest',sans-serif;color:rgba(255,255,255,.45)">[ макет предоставит заказчик ]</span>
+          <span style="width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;flex:none">
+            <svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5.5L5 9.5L13 1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -362,7 +372,9 @@ TEMPLATE = """<!doctype html>
   <div class="blob-soft blob-soft-b hide-mobile" style="width:420px;height:420px;right:-140px;top:-170px"></div>
   <div class="blob-soft blob-soft-a hide-mobile" style="width:340px;height:340px;left:-110px;bottom:-150px"></div>
   <div style="max-width:1240px;margin:0 auto;padding:96px 40px;position:relative">
-    <h2 style="font:800 42px/1.12 'Onest',sans-serif;letter-spacing:-.01em;color:#14171c;margin:0 0 48px">Отзывы<br>от учеников</h2>
+    <h2 style="font:800 54px/1.1 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 48px">
+      <span style="color:{ACCENT}">Отзывы</span><br><span style="color:#14171c">от учеников</span>
+    </h2>
     <div class="grid-reviews" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
       {reviews_html}
     </div>
