@@ -543,3 +543,21 @@ with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_out)
 
 print("wrote index.html,", len(html_out), "bytes")
+
+# robots.txt and sitemap.xml are generated from the same SITE_URL so a
+# domain change only ever requires editing the one constant above.
+with open("robots.txt", "w", encoding="utf-8") as f:
+    f.write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+
+with open("sitemap.xml", "w", encoding="utf-8") as f:
+    f.write(f'''<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{SITE_URL}/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+''')
+
+print("wrote robots.txt and sitemap.xml")
