@@ -122,7 +122,7 @@ reviews_html = "\n".join(f'''<div style="background:#fff;border:1px solid #e0ded
   <p style="font:500 16px/1.55 'Onest',sans-serif;margin:0;color:#4a4a4a">{e(r["text"])}</p>
 </div>''' for r in reviews)
 
-SITE_URL = "https://murat-course.vercel.app"
+SITE_URL = "https://course.restocalculator.kz"
 PAGE_TITLE = "Кост-контроллер — практическое обучение | Resto Calculator"
 PAGE_DESC = "Практическое обучение профессии кост-контроллера для ресторанного бизнеса. Себестоимость, технологические карты, склад, производство, iiko."
 

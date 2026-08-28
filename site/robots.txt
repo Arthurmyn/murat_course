@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://murat-course.vercel.app/sitemap.xml
+Sitemap: https://course.restocalculator.kz/sitemap.xml
