@@ -23,15 +23,15 @@ skills = [
 ]
 
 modules = [
-    {"num": "01", "title": "Профессия бухгалтера-калькулятора"},
-    {"num": "02", "title": "Технологические карты"},
-    {"num": "03", "title": "Себестоимость"},
-    {"num": "04", "title": "Сырьё и полуфабрикаты"},
-    {"num": "05", "title": "Производство"},
-    {"num": "06", "title": "Складской учёт"},
-    {"num": "07", "title": "Инвентаризация"},
-    {"num": "08", "title": "Работа в iiko"},
-    {"num": "09", "title": "Практические задания"},
+    {"num": "1", "title": "Профессия бухгалтера-калькулятора"},
+    {"num": "2", "title": "Технологические карты"},
+    {"num": "3", "title": "Себестоимость"},
+    {"num": "4", "title": "Сырьё и полуфабрикаты"},
+    {"num": "5", "title": "Производство"},
+    {"num": "6", "title": "Складской учёт"},
+    {"num": "7", "title": "Инвентаризация"},
+    {"num": "8", "title": "Работа в iiko"},
+    {"num": "9", "title": "Практические задания"},
 ]
 
 lecturer_facts = [
@@ -78,11 +78,9 @@ audience_html = "\n".join(f'''<div>
   </div>
 </div>''' for a in audience)
 
-modules_html = "\n".join(f'''<div style="border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:18px">
-  <div style="width:52px;height:52px;background:{ACCENT};border-radius:10px;display:flex;align-items:center;justify-content:center">
-    <span style="font:800 21px/1 'Onest',sans-serif;color:#fff">{e(m["num"])}</span>
-  </div>
-  <h3 style="font:800 19px/1.3 'Onest',sans-serif;letter-spacing:-.005em;color:#14171c;margin:0">{e(m["title"])}</h3>
+modules_html = "\n".join(f'''<div style="flex:none;width:280px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
+  <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">Модуль {e(m["num"])}</span>
+  <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:{ACCENT};margin:0">{e(m["title"])}</h3>
 </div>''' for m in modules)
 
 lecturer_facts_html = "\n".join(f'''<div style="display:flex;gap:14px;align-items:flex-start">
@@ -155,6 +153,10 @@ TEMPLATE = """<!doctype html>
   .b4{{animation:bob4 7s ease-in-out infinite}}
   @keyframes floatCard{{0%,100%{{transform:translateY(0) rotate(-2deg)}}50%{{transform:translateY(-16px) rotate(1deg)}}}}
   .chart-card{{position:absolute;background:#fff;border-radius:28px;box-shadow:0 26px 54px rgba(0,0,0,.3);animation:floatCard 7s ease-in-out infinite;overflow:hidden}}
+  .programs-scroll{{-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#e0dede transparent}}
+  .programs-scroll::-webkit-scrollbar{{height:6px}}
+  .programs-scroll::-webkit-scrollbar-track{{background:transparent}}
+  .programs-scroll::-webkit-scrollbar-thumb{{background:#e0dede;border-radius:3px}}
   @media (max-width:900px){{
     .wrap{{min-width:0 !important}}
     .hide-mobile{{display:none !important}}
@@ -258,10 +260,10 @@ TEMPLATE = """<!doctype html>
   <div style="max-width:1240px;margin:0 auto;padding:96px 40px;position:relative">
     <div style="display:flex;align-items:center;gap:18px;margin:0 0 24px">
       <h2 style="font:800 54px/1.1 'Onest',sans-serif;letter-spacing:-.01em;color:#14171c;margin:0">Программа<br>курса</h2>
-      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:10px"><circle cx="12" cy="12" r="11" stroke="{ACCENT}" stroke-width="1.4"/><path d="M9 8l4 4-4 4" stroke="{ACCENT}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:10px"><circle cx="12" cy="12" r="11" stroke="{ACCENT}" stroke-width="1.4"/><path d="M7 8l4 4-4 4" stroke="{ACCENT}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 8l4 4-4 4" stroke="{ACCENT}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <p style="font:500 15px/1.6 'Onest',sans-serif;color:#8a8a8a;margin:0 0 40px;max-width:64ch">[ Темы и практические задания каждого модуля уточняются — программа будет опубликована перед стартом потока ]</p>
-    <div class="grid-modules" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:0 0 40px">
+    <p style="font:500 15px/1.6 'Onest',sans-serif;color:#8a8a8a;margin:0 0 40px;white-space:nowrap">[ Темы и практические задания каждого модуля уточняются — программа будет опубликована перед стартом потока ]</p>
+    <div class="programs-scroll" style="display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:14px;margin:0 0 40px">
       {modules_html}
     </div>
     <a href="#cta" class="btn" style="background:{ACCENT};color:#fff;min-height:54px;padding:0 28px;font-size:14px">Записаться на курс</a>
