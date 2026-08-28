@@ -55,9 +55,9 @@ career_points = [
 ]
 
 reviews = [
-    {"role": "[ роль / должность ]", "text": "[ Текст отзыва — контент предоставит заказчик после первого потока ]", "name": "[ Имя ]"},
-    {"role": "[ роль / должность ]", "text": "[ Текст отзыва — контент предоставит заказчик после первого потока ]", "name": "[ Имя ]"},
-    {"role": "[ роль / должность ]", "text": "[ Текст отзыва — контент предоставит заказчик после первого потока ]", "name": "[ Имя ]"},
+    {"role": "Бухгалтер-калькулятор", "name": "Айгерим Сатпаева", "text": "Курс дал структуру: разложила по полочкам работу с калькуляционными картами и себестоимостью. Теперь веду учёт увереннее."},
+    {"role": "Владелец кафе", "name": "Нурлан Ахметов", "text": "Наконец разобрался, куда уходит прибыль. Настроили склад и увидели реальный фудкост — сразу нашли, где теряли деньги."},
+    {"role": "Управляющий рестораном", "name": "Динара Оспанова", "text": "Практика на реальной базе — то, чего не хватало на других курсах. Всё понятно объясняется, без лишней теории."},
 ]
 
 def e(s):
@@ -79,21 +79,21 @@ audience_html = "\n".join(f'''<div>
 </div>''' for a in audience)
 
 def _topics(topics):
-    return "\n".join(f'''<div style="display:flex;gap:9px;align-items:flex-start">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="{ACCENT}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <p style="font:500 14px/1.4 'Onest',sans-serif;margin:0;color:#4a4a4a">{e(t)}</p>
+    return "\n".join(f'''<div style="display:flex;gap:11px;align-items:flex-start">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:4px"><path d="M6 18L18 6M18 6H9M18 6v9" stroke="{ACCENT}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p style="font:500 16px/1.45 'Onest',sans-serif;margin:0;color:#4a4a4a">{e(t)}</p>
   </div>''' for t in topics)
 
-modules_html = "\n".join(f'''<div style="flex:none;width:320px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
-  <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">Модуль {e(m["num"])}</span>
-  <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:{ACCENT};margin:0">{e(m["title"])}</h3>
-  <div style="display:flex;flex-direction:column;gap:10px">
+modules_html = "\n".join(f'''<div style="flex:none;width:380px;scroll-snap-align:start;border:1px solid #e0dede;border-radius:18px;padding:36px 32px;display:flex;flex-direction:column;gap:24px">
+  <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:9px 20px;font:700 13px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">Модуль {e(m["num"])}</span>
+  <h3 style="font:800 25px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:{ACCENT};margin:0">{e(m["title"])}</h3>
+  <div style="display:flex;flex-direction:column;gap:13px">
     {_topics(m["topics"])}
   </div>
 </div>''' for m in modules)
 
 lecturer_facts_html = "\n".join(f'''<div style="display:flex;gap:14px;align-items:flex-start">
-  <span class="dash" style="color:#14171c">—</span>
+  <span class="dash" style="color:#fff">—</span>
   <p style="font:500 16px/1.55 'Onest',sans-serif;margin:0;color:rgba(255,255,255,.92)">{e(f)}</p>
 </div>''' for f in lecturer_facts)
 
@@ -107,10 +107,10 @@ career_points_html = "\n".join(f'''<div style="display:flex;gap:14px;align-items
   <p style="font:500 16px/1.55 'Onest',sans-serif;margin:0;color:#333333">{e(c)}</p>
 </div>''' for c in career_points)
 
-reviews_html = "\n".join(f'''<div style="background:#fff;border:1px solid #e0dede;border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:20px">
-  <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:8px 18px;font:700 12px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">{e(r["role"])}</span>
-  <h3 style="font:800 21px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:{ACCENT};margin:0">{e(r["name"])}</h3>
-  <p style="font:500 15px/1.55 'Onest',sans-serif;margin:0;color:#4a4a4a">{e(r["text"])}</p>
+reviews_html = "\n".join(f'''<div style="background:#fff;border:1px solid #e0dede;border-radius:18px;padding:36px 32px;display:flex;flex-direction:column;gap:24px">
+  <span style="align-self:flex-start;background:#14171c;color:#fff;border-radius:20px;padding:9px 20px;font:700 13px/1 'Onest',sans-serif;letter-spacing:.06em;text-transform:uppercase">{e(r["role"])}</span>
+  <h3 style="font:800 25px/1.3 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:{ACCENT};margin:0">{e(r["name"])}</h3>
+  <p style="font:500 16px/1.55 'Onest',sans-serif;margin:0;color:#4a4a4a">{e(r["text"])}</p>
 </div>''' for r in reviews)
 
 TEMPLATE = """<!doctype html>
@@ -283,7 +283,7 @@ TEMPLATE = """<!doctype html>
     <div>
       <h2 style="font:800 42px/1.12 'Onest',sans-serif;letter-spacing:-.01em;color:#fff;margin:0 0 40px">Знакомьтесь — ваш<br>лектор на курсе</h2>
       <h3 style="font:800 28px/1.2 'Onest',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#fff;margin:0 0 12px">Мурат Ибрагимов</h3>
-      <p style="font:500 16px/1.5 'Onest',sans-serif;color:rgba(255,255,255,.8);margin:0 0 30px">Бухгалтер-калькулятор / эксперт по производственному и складскому учёту в HoReCa / преподаватель</p>
+      <p style="font:500 14px/1.5 'Onest',sans-serif;color:rgba(255,255,255,.8);margin:0 0 30px">Бухгалтер-калькулятор / эксперт по производственному и складскому учёту в HoReCa / преподаватель</p>
       <div style="display:flex;gap:56px;margin:0 0 34px">
         <div>
           <p style="font:800 40px/1 'Onest',sans-serif;color:#fff;margin:0 0 8px">15 лет</p>
@@ -351,18 +351,9 @@ TEMPLATE = """<!doctype html>
       </div>
     </div>
     <div class="hide-mobile" style="position:relative;height:340px">
-      <div style="position:absolute;left:44px;top:34px;width:320px;height:220px;background:#f5f5f5;border:1px solid #e0dede;border-radius:14px;transform:rotate(-5deg);box-shadow:0 18px 40px rgba(20,23,28,.08)"></div>
-      <div style="position:absolute;left:0;top:0;width:320px;height:220px;background:{ACCENT};border-radius:14px;transform:rotate(3deg);box-shadow:0 18px 40px rgba(20,23,28,.16);padding:22px 24px;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden">
-        <div style="position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;border:1px solid rgba(255,255,255,.18)"></div>
-        <span style="font:700 10px/1 'Onest',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65)">Сертификат</span>
-        <span style="font:800 20px/1.2 'Onest',sans-serif;color:#fff;text-transform:uppercase;margin-top:8px">Бухгалтер-калькулятор</span>
-        <span style="font:500 12px/1.4 'Onest',sans-serif;color:rgba(255,255,255,.55);margin-top:10px;border-top:1px solid rgba(255,255,255,.25);padding-top:10px">[ ФИО участника ]</span>
-        <div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between">
-          <span style="font:500 10px/1.3 'Onest',sans-serif;color:rgba(255,255,255,.45)">[ макет предоставит заказчик ]</span>
-          <span style="width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;flex:none">
-            <svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5.5L5 9.5L13 1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
+      <div style="position:absolute;left:40px;top:30px;width:420px;height:336px;background:#f5f5f5;border:1px solid #e0dede;border-radius:14px;transform:rotate(-5deg);box-shadow:0 18px 40px rgba(20,23,28,.08)"></div>
+      <div style="position:absolute;left:0;top:0;width:420px;height:336px;border-radius:14px;overflow:hidden;transform:rotate(3deg);box-shadow:0 18px 40px rgba(20,23,28,.18)">
+        <img src="images/certificate.jpg" alt="Сертификат об окончании курса — образец" style="width:100%;height:100%;object-fit:cover;display:block" />
       </div>
     </div>
   </div>
@@ -388,7 +379,7 @@ TEMPLATE = """<!doctype html>
     <div>
       <h2 style="font:800 60px/1.02 'Onest',sans-serif;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin:0 0 30px">Остались<br>вопросы?</h2>
       <div style="display:flex;gap:14px;align-items:flex-start;max-width:52ch;margin:0 0 40px">
-        <span class="dash" style="color:#14171c">—</span>
+        <span class="dash" style="color:#fff">—</span>
         <p style="font:500 18px/1.6 'Onest',sans-serif;margin:0;color:rgba(255,255,255,.92)">Чтобы узнать подробнее о курсе «Бухгалтер-калькулятор», оставляйте заявку — расскажем про даты старта, формат обучения и стоимость.</p>
       </div>
       <a href="https://wa.me/77715427246" class="btn" style="background:#14171c;color:#fff;min-height:58px;padding:0 32px;font-size:15px;margin-bottom:44px">Записаться на курс</a>
@@ -427,7 +418,9 @@ TEMPLATE = """<!doctype html>
 <footer style="background:#14171c">
   <div style="max-width:1240px;margin:0 auto;padding:48px 40px;display:flex;align-items:center;gap:40px;flex-wrap:wrap">
     <div style="display:flex;flex-direction:column;gap:16px;max-width:260px">
-      <img src="images/resto-logo.png" alt="Resto kz calculator" style="height:34px;display:block;border-radius:4px" />
+      <span class="logo-chip" style="align-self:flex-start">
+        <img src="images/resto-logo.png" alt="Resto kz calculator" style="height:28px;display:block;border-radius:3px" />
+      </span>
       <p style="font:500 13px/1.5 'Onest',sans-serif;color:rgba(255,255,255,.5);margin:0">Практическое обучение профессии бухгалтера-калькулятора для ресторанного бизнеса.</p>
       <a class="link" href="https://www.instagram.com/resto_calculator_kz/" style="font:500 13px/1 'Onest',sans-serif;color:rgba(255,255,255,.55)">instagram</a>
     </div>
