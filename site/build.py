@@ -340,7 +340,7 @@ TEMPLATE = """<!doctype html>
 <section style="position:relative;overflow:hidden;border-bottom:1px solid #e9eaed">
   <div class="blob-soft blob-soft-a hide-mobile" style="width:400px;height:400px;left:-130px;top:-170px"></div>
   <div class="blob-soft blob-soft-b hide-mobile" style="width:340px;height:340px;right:-110px;bottom:-150px"></div>
-  <div class="grid-career" style="max-width:1240px;margin:0 auto;padding:96px 40px;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 460px;gap:64px;align-items:center">
+  <div class="grid-career" style="max-width:1320px;margin:0 auto;padding:96px 40px;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:56px;align-items:center">
     <div>
       <h2 style="font:800 54px/1.1 'Onest',sans-serif;letter-spacing:-.01em;margin:0 0 30px">
         <span style="color:{ACCENT}">Карьера</span><br><span style="color:#14171c">после курса</span>
@@ -350,9 +350,9 @@ TEMPLATE = """<!doctype html>
         {career_points_html}
       </div>
     </div>
-    <div class="hide-mobile" style="position:relative;height:340px">
-      <div style="position:absolute;left:40px;top:30px;width:420px;height:336px;background:#f5f5f5;border:1px solid #e0dede;border-radius:14px;transform:rotate(-5deg);box-shadow:0 18px 40px rgba(20,23,28,.08)"></div>
-      <div style="position:absolute;left:0;top:0;width:420px;height:336px;border-radius:14px;overflow:hidden;transform:rotate(3deg);box-shadow:0 18px 40px rgba(20,23,28,.18)">
+    <div class="hide-mobile" style="position:relative;height:460px">
+      <div style="position:absolute;left:48px;top:36px;width:520px;height:416px;background:#f5f5f5;border:1px solid #e0dede;border-radius:16px;transform:rotate(-5deg);box-shadow:0 22px 48px rgba(20,23,28,.08)"></div>
+      <div style="position:absolute;left:0;top:0;width:520px;height:416px;border-radius:16px;overflow:hidden;transform:rotate(3deg);box-shadow:0 22px 48px rgba(20,23,28,.2)">
         <img src="images/certificate.jpg" alt="Сертификат об окончании курса — образец" style="width:100%;height:100%;object-fit:cover;display:block" />
       </div>
     </div>
