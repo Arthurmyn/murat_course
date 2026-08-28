@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Generates static index.html from the design content (mirrors landing-design/Main.dc.html)
 import html
+import json
 
 ACCENT = "#a20202"
 
@@ -121,13 +122,67 @@ reviews_html = "\n".join(f'''<div style="background:#fff;border:1px solid #e0ded
   <p style="font:500 16px/1.55 'Onest',sans-serif;margin:0;color:#4a4a4a">{e(r["text"])}</p>
 </div>''' for r in reviews)
 
+SITE_URL = "https://murat-course.vercel.app"
+PAGE_TITLE = "Кост-контроллер — практическое обучение | Resto Calculator"
+PAGE_DESC = "Практическое обучение профессии кост-контроллера для ресторанного бизнеса. Себестоимость, технологические карты, склад, производство, iiko."
+
+JSON_LD_DATA = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Кост-контроллер",
+    "description": PAGE_DESC,
+    "url": SITE_URL + "/",
+    "image": SITE_URL + "/images/og-cover.jpg",
+    "inLanguage": "ru",
+    "provider": {
+        "@type": "Organization",
+        "name": "Resto Calculator",
+        "url": "https://restocalculator.kz",
+        "sameAs": ["https://www.instagram.com/resto_calculator_kz/"],
+    },
+    "instructor": {
+        "@type": "Person",
+        "name": "Мурат Ибрагимов",
+        "jobTitle": "Кост-контроллер, учредитель Resto Calculator",
+    },
+    "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "blended",
+        "courseWorkload": "P90M",
+    },
+}
+JSON_LD = json.dumps(JSON_LD_DATA, ensure_ascii=False, indent=2)
+
 TEMPLATE = """<!doctype html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Кост-контроллер — практическое обучение | Resto Calculator</title>
-<meta name="description" content="Практическое обучение профессии кост-контроллера для ресторанного бизнеса. Себестоимость, технологические карты, склад, производство, iiko.">
+<title>{PAGE_TITLE}</title>
+<meta name="description" content="{PAGE_DESC}">
+<link rel="canonical" href="{SITE_URL}/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Resto Calculator">
+<meta property="og:title" content="{PAGE_TITLE}">
+<meta property="og:description" content="{PAGE_DESC}">
+<meta property="og:url" content="{SITE_URL}/">
+<meta property="og:image" content="{SITE_URL}/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{PAGE_TITLE}">
+<meta name="twitter:description" content="{PAGE_DESC}">
+<meta name="twitter:image" content="{SITE_URL}/images/og-cover.jpg">
+
+<link rel="icon" href="/images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png">
+
+<script type="application/ld+json">{JSON_LD}</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -296,7 +351,7 @@ TEMPLATE = """<!doctype html>
   <div class="grid-lecturer section-inner" style="max-width:1240px;margin:0 auto;padding:96px 40px;position:relative;display:grid;grid-template-columns:400px minmax(0,1fr);gap:64px;align-items:start">
     <div style="position:relative;width:100%;max-width:400px;aspect-ratio:400/520">
       <div style="position:absolute;left:0;bottom:0;width:100%;height:100%;background:#14171c;border-radius:18px"></div>
-      <img src="images/murat.webp" alt="Мурат Ибрагимов" style="position:absolute;left:0;bottom:0;width:100%;height:auto;display:block" />
+      <img src="images/murat.webp" alt="Мурат Ибрагимов — лектор курса «Кост-контроллер», учредитель Resto Calculator" style="position:absolute;left:0;bottom:0;width:100%;height:auto;display:block" />
     </div>
     <div>
       <h2 style="font:800 clamp(26px,5.5vw,42px)/1.12 'Onest',sans-serif;letter-spacing:-.01em;color:#fff;margin:0 0 40px">Знакомьтесь — ваш<br>лектор на курсе</h2>
@@ -471,6 +526,10 @@ TEMPLATE = """<!doctype html>
 
 html_out = TEMPLATE.format(
     ACCENT=ACCENT,
+    PAGE_TITLE=PAGE_TITLE,
+    PAGE_DESC=PAGE_DESC,
+    SITE_URL=SITE_URL,
+    JSON_LD=JSON_LD,
     audience_html=audience_html,
     skills_html=skills_html,
     modules_html=modules_html,
